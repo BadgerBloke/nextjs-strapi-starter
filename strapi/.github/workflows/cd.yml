@@ -1,0 +1,24 @@
+name: 2. Strapi Deployment on DigitalOcean
+
+on:
+  workflow_run:
+    workflows: ["1. Strapi Image Building CI"]
+    types: [completed]
+    branches: ["trunk"]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Docker Compose Pull
+        run: docker compose pull
+
+      - name: Docker Compose Down
+        run: docker compose down
+
+      - name: Docker Compose Up
+        run: docker compose up -d
+
+      - name: Removing dangling docker objects
+        run: docker system prune -af

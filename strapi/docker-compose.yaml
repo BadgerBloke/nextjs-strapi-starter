@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: badgerbloke-strapi
+    image: camksingh/badgerbloke-strapi:latest
+    restart: unless-stopped
+    environment:
+      # Server ENVs
+      HOST: ${HOST}
+      NODE_ENV: ${NODE_ENV}
+      STRAPI_URL: ${STRAPI_URL}
+      PORT: ${PORT}
+      APP_KEYS: ${APP_KEYS}
+      API_TOKEN_SALT: ${API_TOKEN_SALT}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
+      # Database ENVs
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_SSL: ${DATABASE_SSL}
+      # Cloudinary
+      CLOUDINARY_NAME: ${CLOUDINARY_NAME}
+      CLOUDINARY_KEY: ${CLOUDINARY_KEY}
+      CLOUDINARY_SECRET: ${CLOUDINARY_SECRET}
+
+      JWT_SECRET: ${JWT_SECRET}
+
+    ports:
+      - 1337:1337
+
+  rustsea-strapi:
+    container_name: RustSEA-strapi
+    image: camksingh/badgerbloke-strapi:latest
+    restart: unless-stopped
+    environment:
+      # Server ENVs
+      HOST: ${RUSTSEA_HOST}
+      NODE_ENV: ${RUSTSEA_NODE_ENV}
+      STRAPI_URL: ${RUSTSEA_STRAPI_URL}
+      PORT: ${RUSTSEA_PORT}
+      APP_KEYS: ${RUSTSEA_APP_KEYS}
+      API_TOKEN_SALT: ${RUSTSEA_API_TOKEN_SALT}
+      ADMIN_JWT_SECRET: ${RUSTSEA_ADMIN_JWT_SECRET}
+      TRANSFER_TOKEN_SALT: ${RUSTSEA_TRANSFER_TOKEN_SALT}
+      # Database ENVs
+      DATABASE_CLIENT: ${RUSTSEA_DATABASE_CLIENT}
+      DATABASE_HOST: ${RUSTSEA_DATABASE_HOST}
+      DATABASE_PORT: ${RUSTSEA_DATABASE_PORT}
+      DATABASE_NAME: ${RUSTSEA_DATABASE_NAME}
+      DATABASE_USERNAME: ${RUSTSEA_DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${RUSTSEA_DATABASE_PASSWORD}
+      DATABASE_SSL: ${RUSTSEA_DATABASE_SSL}
+      # Cloudinary
+      CLOUDINARY_NAME: ${RUSTSEA_CLOUDINARY_NAME}
+      CLOUDINARY_KEY: ${RUSTSEA_CLOUDINARY_KEY}
+      CLOUDINARY_SECRET: ${RUSTSEA_CLOUDINARY_SECRET}
+
+      JWT_SECRET: ${RUSTSEA_JWT_SECRET}
+
+    ports:
+      - 1345:1337

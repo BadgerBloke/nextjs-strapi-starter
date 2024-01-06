@@ -1,0 +1,7 @@
+node_modules
+.cache
+.tmp
+build
+.env
+.strapi-updater.json
+npm-debug.log
