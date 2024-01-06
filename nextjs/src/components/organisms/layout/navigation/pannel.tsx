@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import { WideLogo } from '~/components/icons/mksingh';
 import { buttonVariants } from '~/components/ui/button';
 import { ScrollArea } from '~/components/ui/scroll-area';
 import { Separator } from '~/components/ui/separator';
@@ -26,7 +25,7 @@ const SheetSide = ({
             <SheetContent side="left" className="p-4">
                 <div className="mb-4 flex w-full items-center justify-between">
                     <Link href="/" className="flex items-center gap-2" onClick={onClick}>
-                        <WideLogo />
+                        MKSingh
                     </Link>
                     <SheetClose asChild>{trigger}</SheetClose>
                 </div>
